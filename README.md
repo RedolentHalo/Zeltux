@@ -78,11 +78,12 @@ An open-source Discord bot designed to enhance community interaction with a vari
     npm install
     ```
 
-3. **Create a `config.json` file:**
-   In the root of the project, copy the example configuration file:
+3. **Create Configuration files:**
+   In the root of the project, copy the example configuration files:
 
     ```bash
     cp config.json.example config.json
+    cp .env.example .env
     ```
 
 4. **Fill in Your Configuration:**
@@ -90,12 +91,18 @@ An open-source Discord bot designed to enhance community interaction with a vari
 
     ```json
     {
-        "token": "YOUR_BOT_TOKEN",
         "clientId": "YOUR_CLIENT_ID",
         "weatherApi": "YOUR_WEATHER_API_KEY",
         "MongoDBURI": "YOUR_MONGODB_CONNECTION_STRING"
     }
     ```
+   
+   Open the `.env` file and fill in the following fields (Required):
+   
+    ```env
+    Token=PLACE YOUR TOKEN HERE
+    ```
+
 
 5. **Run the Bot:**
     ```bash

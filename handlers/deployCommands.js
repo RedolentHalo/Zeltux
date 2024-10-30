@@ -1,7 +1,7 @@
 const { REST, Routes } = require('discord.js')
 const fs = require('fs')
 const path = require('path')
-const { clientId, token } = require('../config.json')
+const { clientId } = require('../config.json')
 
 module.exports = async () => {
     const commands = []
@@ -19,7 +19,7 @@ module.exports = async () => {
         }
     })
 
-    const rest = new REST({ version: '10' }).setToken(token)
+    const rest = new REST({ version: '10' }).setToken(process.env.Token)
 
     try {
         console.log(

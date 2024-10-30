@@ -1,8 +1,12 @@
 const { Client, GatewayIntentBits } = require('discord.js')
-const { token } = require('./config.json')
+const dotenv = require("dotenv");
 const fs = require('fs')
 const path = require('path')
 const chalk = require('chalk')
+
+/* Required to load Environment */
+dotenv.config();
+/* Required to load Environment */
 
 console.log(
     chalk.red(
@@ -67,7 +71,8 @@ const client = new Client({
         GatewayIntentBits.GuildMembers,
     ],
 })
-const styles = {
+
+global.styles = {
     successColor: chalk.bold.green,
     warningColor: chalk.bold.yellow,
     infoColor: chalk.bold.blue,
@@ -76,21 +81,17 @@ const styles = {
     errorColor: chalk.red,
 }
 
-global.styles = styles
-
 const handlerFiles = fs
     .readdirSync(path.join(__dirname, 'handlers'))
     .filter((file) => file.endsWith('.js'))
-counter = 0
 for (const file of handlerFiles) {
-    counter += 1
     const handler = require(`./handlers/${file}`)
     if (typeof handler === 'function') {
         handler(client)
     }
 }
 console.log(
-    global.styles.successColor(`✅ Succesfully loaded ${counter} handlers`)
+    global.styles.successColor(`✅ Succesfully loaded ${(handlerFiles.length + 1)} handlers`)
 )
 
-client.login(token)
+client.login(process.env.Token)

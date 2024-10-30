@@ -33,7 +33,8 @@ module.exports = {
             }
         }
 
-        if (
+        // TODO: Remove this since it's moved to events/giveawayButton.js
+        /*if (
             interaction.isButton() &&
             interaction.customId === 'join_giveaway'
         ) {
@@ -73,6 +74,6 @@ module.exports = {
                 content: 'You have successfully joined the giveaway!',
                 ephemeral: true,
             })
-        }
+        }*/
     },
 }

@@ -1,6 +1,4 @@
 {
-    "token": "",
-    "clientId": "",
     "weatherApi": "",
     "MongoDBURI": ""
 }
